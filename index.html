@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kedai Roti Enggo – Fresh Dipanggang Setiap Hari</title>
+  <meta name="description" content="Kedai Roti Enggo – Aneka roti, kue, dan pastry segar berkualitas di Sentani, Jayapura, Papua." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bread:   { DEFAULT: '#FFBF00', dark: '#E6AC00' },
+            cream:   { DEFAULT: '#FFF8E7', dark: '#FFF0CC' },
+            brown:   { DEFAULT: '#8B5E3C', dark: '#5C4033', light: '#A67B5B' },
+            ink:     '#333333',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: #333333; }
+    h1,h2,h3 { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ── Navbar scroll shadow ── */
+    .nav-scrolled { box-shadow: 0 2px 16px rgba(92,64,51,.18); }
+
+    /* ── Hero background overlay ── */
+    .hero-overlay { background: linear-gradient(135deg, rgba(92,64,51,.82) 0%, rgba(139,94,60,.55) 60%, rgba(0,0,0,.15) 100%); }
+
+    /* ── Smooth card hover ── */
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(92,64,51,.18); }
+
+    /* ── FAQ accordion ── */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .25s ease; }
+    .faq-answer.open { max-height: 300px; }
+
+    /* ── Floating WhatsApp ── */
+    @keyframes pulse-wa { 0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.6)} 70%{box-shadow:0 0 0 12px rgba(37,211,102,0)} }
+    .wa-float { animation: pulse-wa 2.2s infinite; }
+
+    /* ── Gallery grid hover ── */
+    .gallery-item img { transition: transform .35s ease; }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    /* ── Section separator ── */
+    .wave-bottom { position:relative; }
+    .wave-bottom::after {
+      content:''; position:absolute; bottom:-1px; left:0; width:100%; height:50px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 50'%3E%3Cpath fill='%23FFF8E7' d='M0,30 C360,60 1080,0 1440,30 L1440,50 L0,50 Z'/%3E%3C/svg%3E") no-repeat bottom / cover;
+    }
+
+    /* ── Step connector ── */
+    .step-connector { position:relative; }
+    .step-connector:not(:last-child)::after {
+      content:''; position:absolute; top:2rem; left:calc(100% - .5rem);
+      width:1rem; height:2px; background:#FFBF00;
+    }
+  </style>
+</head>
+
+<body class="bg-cream">
+
+<!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-brown-dark/95 backdrop-blur-sm transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group">
+        <div class="w-9 h-9 bg-bread rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+          <i class="fa-solid fa-bread-slice text-brown-dark text-sm"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-white font-serif text-base font-semibold tracking-wide">Kedai Roti</span>
+          <span class="block text-bread text-xs font-medium tracking-widest uppercase">Enggo</span>
+        </div>
+      </a>
+
+      <!-- Desktop menu -->
+      <ul class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/85">
+        <li><a href="#home"      class="hover:text-bread transition-colors">Beranda</a></li>
+        <li><a href="#about"     class="hover:text-bread transition-colors">Tentang</a></li>
+        <li><a href="#why"       class="hover:text-bread transition-colors">Kenapa Kami</a></li>
+        <li><a href="#products"  class="hover:text-bread transition-colors">Produk</a></li>
+        <li><a href="#promo"     class="hover:text-bread transition-colors">Promo</a></li>
+        <li><a href="#gallery"   class="hover:text-bread transition-colors">Galeri</a></li>
+        <li><a href="#testimoni" class="hover:text-bread transition-colors">Testimoni</a></li>
+        <li><a href="#location"  class="hover:text-bread transition-colors">Lokasi</a></li>
+        <li><a href="#faq"       class="hover:text-bread transition-colors">FAQ</a></li>
+      </ul>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/62821888569?text=Halo%20Kedai%20Roti%20Enggo%2C%20saya%20ingin%20pesan%20roti"
+           target="_blank"
+           class="hidden sm:inline-flex items-center gap-2 bg-bread text-brown-dark text-sm font-semibold px-4 py-2 rounded-full hover:bg-bread-dark transition-colors shadow">
+          <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+        </a>
+        <button id="burger" class="lg:hidden text-white focus:outline-none" aria-label="Menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-brown-dark/98 border-t border-white/10">
+    <ul class="flex flex-col px-6 py-4 gap-3 text-sm font-medium text-white/85">
+      <li><a href="#home"      class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Beranda</a></li>
+      <li><a href="#about"     class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Tentang Kami</a></li>
+      <li><a href="#why"       class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Kenapa Kami</a></li>
+      <li><a href="#products"  class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Produk</a></li>
+      <li><a href="#promo"     class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Promo</a></li>
+      <li><a href="#gallery"   class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Galeri</a></li>
+      <li><a href="#testimoni" class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Testimoni</a></li>
+      <li><a href="#location"  class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Lokasi</a></li>
+      <li><a href="#faq"       class="block py-1 hover:text-bread" onclick="closeMobileMenu()">FAQ</a></li>
+      <li class="pt-2">
+        <a href="https://wa.me/62821888569?text=Halo%20Kedai%20Roti%20Enggo%2C%20saya%20ingin%20pesan%20roti"
+           target="_blank"
+           class="flex items-center gap-2 justify-center bg-bread text-brown-dark font-semibold py-2 rounded-full">
+          <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════ -->
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Background image via Unsplash (freely usable) -->
+  <div class="absolute inset-0 bg-cover bg-center"
+       style="background-image:url('assets/img/1.webp')">
+  </div>
+  <div class="hero-overlay absolute inset-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+    <div class="max-w-2xl">
+      <!-- Badge -->
+      <span class="inline-flex items-center gap-2 bg-bread/20 border border-bread/40 text-bread text-xs font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+        <i class="fa-solid fa-fire-flame-curved"></i> Fresh From The Oven
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white font-serif font-bold leading-tight mb-4">
+        Roti Fresh<br/>
+        <span class="text-bread">Dipanggang</span><br/>
+        Setiap Hari
+      </h1>
+
+      <p class="text-white/80 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
+        Nikmati aneka roti, kue, dan pastry dengan bahan berkualitas, dibuat segar setiap hari untuk keluarga Anda.
+        Tanpa pengawet, penuh cinta.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#products"
+           class="flex items-center gap-2 bg-bread text-brown-dark font-semibold px-6 py-3 rounded-full hover:bg-bread-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          <i class="fa-solid fa-utensils"></i> Lihat Produk
+        </a>
+        <a href="https://wa.me/62821888569?text=Halo%20Kedai%20Roti%20Enggo%2C%20saya%20ingin%20pesan%20roti"
+           target="_blank"
+           class="flex items-center gap-2 bg-white/15 border border-white/40 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/25 transition-all backdrop-blur-sm">
+          <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ════════════════════════════════════════
+     TENTANG KAMI
+════════════════════════════════════════ -->
+<section id="about" class="py-20 bg-cream wave-bottom">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Image collage -->
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+          <img src="assets/img/2.webp"
+               alt="Proses pembuatan roti"
+               class="w-full h-full object-cover" />
+        </div>
+        <!-- Float badge -->
+        <div class="absolute -bottom-5 -right-5 bg-brown-dark text-white rounded-2xl px-5 py-4 shadow-xl text-center">
+          <p class="text-3xl font-serif font-bold text-bread">7+</p>
+          <p class="text-xs font-medium leading-tight mt-0.5">Tahun<br/>Pengalaman</p>
+        </div>
+        <!-- Small accent -->
+        <div class="absolute -top-4 -left-4 w-20 h-20 bg-bread/30 rounded-full blur-2xl"></div>
+      </div>
+
+      <!-- Text -->
+      <div>
+        <span class="text-brown font-semibold text-sm tracking-widest uppercase">Tentang Kami</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brown-dark mt-2 mb-5">
+          Cita Rasa Rumahan<br/>yang Selalu Dirindukan
+        </h2>
+        <p class="text-ink/75 leading-relaxed mb-4">
+          <strong class="text-brown-dark">Kedai Roti Enggo</strong> berdiri sejak tahun 2018 di jantung Sentani, Jayapura.
+          Berawal dari dapur rumah dengan semangat berbagi kelezatan, kini kami hadir melayani ratusan pelanggan setiap harinya.
+        </p>
+        <p class="text-ink/75 leading-relaxed mb-7">
+          Setiap produk kami dibuat dari bahan pilihan berkualitas tinggi, tanpa pengawet, dan dipanggang segar setiap hari.
+          Kami percaya makanan yang baik lahir dari tangan yang penuh cinta.
+        </p>
+
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-bread/20 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-check text-brown text-xs"></i>
+            </span>
+            <span class="text-ink/80 text-sm">Dipanggang segar setiap pagi & sore</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-bread/20 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-check text-brown text-xs"></i>
+            </span>
+            <span class="text-ink/80 text-sm">Bahan berkualitas tanpa bahan pengawet</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-bread/20 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-check text-brown text-xs"></i>
+            </span>
+            <span class="text-ink/80 text-sm">Cocok untuk keluarga, acara, dan hadiah</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-bread/20 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-check text-brown text-xs"></i>
+            </span>
+            <span class="text-ink/80 text-sm">Menerima pesanan custom & hampers</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     KENAPA MEMILIH KAMI
+════════════════════════════════════════ -->
+<section id="why" class="py-20 bg-brown-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-bread font-semibold text-sm tracking-widest uppercase">Keunggulan Kami</span>
+    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2 mb-12">
+      Kenapa Memilih Kedai Roti Enggo?
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <!-- Card -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-bread-slice text-bread text-2xl"></i>
+        </div>
+        <p class="text-white font-semibold text-sm leading-tight">Fresh Every Day</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-seedling text-bread text-2xl"></i>
+        </div>
+        <p class="text-white font-semibold text-sm leading-tight">Bahan Berkualitas</p>
+      </div>
+
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-cake-candles text-bread text-2xl"></i>
+        </div>
+        <p class="text-white font-semibold text-sm leading-tight">Pesanan Khusus</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-star-and-crescent text-bread text-2xl"></i>
+        </div>
+        <p class="text-white font-semibold text-sm leading-tight">Halal</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
+          <i class="fa-solid fa-heart text-bread text-2xl"></i>
+        </div>
+        <p class="text-white font-semibold text-sm leading-tight">Dibuat dengan Hati</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PRODUK UNGGULAN
+════════════════════════════════════════ -->
+<section id="products" class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-brown font-semibold text-sm tracking-widest uppercase">Menu Kami</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brown-dark mt-2 mb-3">Produk Unggulan</h2>
+      <p class="text-ink/65 max-w-md mx-auto text-sm">Dipilih dari resep terbaik kami yang paling digemari pelanggan setia Kedai Roti Enggo.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8" id="filterTabs">
+      <button data-cat="all"     class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-brown-dark text-white">Semua</button>
+      <button data-cat="manis"   class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Roti Manis</button>
+      <button data-cat="tawar"   class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Roti Tawar</button>
+      <button data-cat="pastry"  class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Pastry</button>
+      <button data-cat="donat"   class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Donat</button>
+      <button data-cat="cake"    class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Cake</button>
+      <button data-cat="cookies" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Cookies</button>
+      <button data-cat="hampers" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-brown border border-brown/30 hover:bg-brown hover:text-white transition-colors">Hampers</button>
+    </div>
+
+    <!-- Product cards -->
+    <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+
+      <!-- Roti Manis -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="manis">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&auto=format&fit=crop&q=80"
+               alt="Roti Coklat" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-bread text-brown-dark text-xs font-bold px-2 py-0.5 rounded-full">Best Seller</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Roti Coklat Lava</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Roti manis lembut isi coklat cair yang meleleh di mulut.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 8.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Roti%20Coklat%20Lava" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="manis">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1596560548464-f010549b84d7?w=400&auto=format&fit=crop&q=80"
+               alt="Roti Keju" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Roti Keju Susu</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Paduan keju dan susu premium yang creamy dan lembut.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 9.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Roti%20Keju%20Susu" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roti Tawar -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="tawar">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1486887396153-fa416526c108?w=400&auto=format&fit=crop&q=80"
+               alt="Roti Tawar" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-bread text-brown-dark text-xs font-bold px-2 py-0.5 rounded-full">Best Seller</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Roti Tawar Klasik</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Roti tawar lembut untuk sarapan keluarga setiap hari.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 18.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Roti%20Tawar%20Klasik" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pastry -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="pastry">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&auto=format&fit=crop&q=80"
+               alt="Croissant" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Croissant Butter</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Croissant berlapis-lapis dengan mentega premium pilihan.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 15.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Croissant%20Butter" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donat -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="donat">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&auto=format&fit=crop&q=80"
+               alt="Donat" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-bread text-brown-dark text-xs font-bold px-2 py-0.5 rounded-full">Best Seller</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Donat Rainbow</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Donat warna-warni dengan topping meses dan glaze spesial.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 6.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Donat%20Rainbow" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cake -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="cake">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&auto=format&fit=crop&q=80"
+               alt="Birthday Cake" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Birthday Cake Custom</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Kue ulang tahun cantik sesuai desain dan keinginan Anda.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Mulai Rp 120.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Birthday%20Cake%20Custom" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cookies -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="cookies">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&auto=format&fit=crop&q=80"
+               alt="Cookies" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-bread text-brown-dark text-xs font-bold px-2 py-0.5 rounded-full">Best Seller</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Cookies Chocochip</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Kue kering renyah penuh coklat chip premium lezat.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Rp 45.000 / toples</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Cookies%20Chocochip" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hampers -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md card-hover" data-cat="hampers">
+        <div class="relative overflow-hidden aspect-[4/3]">
+          <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&auto=format&fit=crop&q=80"
+               alt="Hampers" class="w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-brown-dark text-sm mb-1">Hampers Spesial</h3>
+          <p class="text-ink/60 text-xs mb-3 line-clamp-2">Paket hampers eksklusif untuk kado dan momen istimewa.</p>
+          <div class="flex items-center justify-between">
+            <span class="text-brown font-bold text-sm">Mulai Rp 85.000</span>
+            <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Hampers%20Spesial" target="_blank"
+               class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp text-white text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PROMO
+════════════════════════════════════════ -->
+<section id="promo" class="py-20 bg-brown">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-bread font-semibold text-sm tracking-widest uppercase">Penawaran Terbatas</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Promo Spesial</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-gradient-to-br from-bread to-amber-400 rounded-2xl p-6 text-center shadow-lg card-hover relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+        <i class="fa-solid fa-percent text-white/80 text-4xl mb-3"></i>
+        <h3 class="text-brown-dark font-serif font-bold text-xl mb-1">Diskon 20%</h3>
+        <p class="text-brown-dark/75 text-sm mb-4">Untuk pembelian pertama via WhatsApp. Kode: <strong>ENGGO20</strong></p>
+        <a href="https://wa.me/62821888569?text=Halo!%20Saya%20ingin%20order%20dengan%20kode%20ENGGO20" target="_blank"
+           class="inline-block bg-brown-dark text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brown transition-colors">
+          Klaim Sekarang
+        </a>
+      </div>
+
+      <div class="bg-gradient-to-br from-brown-dark to-brown rounded-2xl p-6 text-center border border-white/10 shadow-lg card-hover relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-20 h-20 bg-bread/10 rounded-full translate-y-6 -translate-x-6"></div>
+        <i class="fa-solid fa-mug-hot text-bread text-4xl mb-3"></i>
+        <h3 class="text-white font-serif font-bold text-xl mb-1">Paket Sarapan</h3>
+        <p class="text-white/70 text-sm mb-4">2 Roti Tawar + 1 Selai + 1 Minuman hanya <strong class="text-bread">Rp 35.000</strong></p>
+        <a href="https://wa.me/62821888569?text=Saya%20ingin%20Paket%20Sarapan" target="_blank"
+           class="inline-block bg-bread text-brown-dark text-sm font-semibold px-5 py-2 rounded-full hover:bg-bread-dark transition-colors">
+          Pesan Sekarang
+        </a>
+      </div>
+
+      <div class="bg-gradient-to-br from-rose-800 to-red-700 rounded-2xl p-6 text-center shadow-lg card-hover relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 w-32 h-32 bg-white/5 rounded-full -translate-y-12"></div>
+        <i class="fa-solid fa-gift text-white/80 text-4xl mb-3"></i>
+        <h3 class="text-white font-serif font-bold text-xl mb-1">Buy 2 Get 1</h3>
+        <p class="text-white/70 text-sm mb-4">Beli 2 donat, gratis 1 donat pilihan. Berlaku setiap hari!</p>
+        <a href="https://wa.me/62821888569?text=Saya%20ingin%20promo%20Buy%202%20Get%201" target="_blank"
+           class="inline-block bg-white text-red-700 text-sm font-semibold px-5 py-2 rounded-full hover:bg-white/90 transition-colors">
+          Pesan Sekarang
+        </a>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl p-6 text-center shadow-lg card-hover">
+        <i class="fa-solid fa-calendar-week text-purple-200 text-4xl mb-3"></i>
+        <h3 class="text-white font-serif font-bold text-xl mb-1">Promo Weekend</h3>
+        <p class="text-white/70 text-sm mb-4">Diskon 15% untuk semua produk setiap Sabtu & Minggu.</p>
+        <a href="https://wa.me/62821888569?text=Saya%20ingin%20info%20Promo%20Weekend" target="_blank"
+           class="inline-block bg-purple-300 text-purple-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-purple-200 transition-colors">
+          Info Selengkapnya
+        </a>
+      </div>
+
+      <div class="bg-gradient-to-br from-teal-800 to-teal-600 rounded-2xl p-6 text-center shadow-lg card-hover">
+        <i class="fa-solid fa-box-open text-teal-200 text-4xl mb-3"></i>
+        <h3 class="text-white font-serif font-bold text-xl mb-1">Hampers Spesial</h3>
+        <p class="text-white/70 text-sm mb-4">Paket hampers cantik untuk hari raya, wisuda, dan momen spesial.</p>
+        <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Hampers%20Spesial" target="_blank"
+           class="inline-block bg-teal-200 text-teal-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-teal-100 transition-colors">
+          Pesan Sekarang
+        </a>
+      </div>
+
+      <div class="bg-gradient-to-br from-yellow-700 to-amber-600 rounded-2xl p-6 text-center shadow-lg card-hover">
+        <i class="fa-solid fa-cake-candles text-yellow-200 text-4xl mb-3"></i>
+        <h3 class="text-white font-serif font-bold text-xl mb-1">Birthday Cake</h3>
+        <p class="text-white/70 text-sm mb-4">Kue ulang tahun custom gratis nama & ucapan. Pesan H-2.</p>
+        <a href="https://wa.me/62821888569?text=Saya%20ingin%20pesan%20Birthday%20Cake" target="_blank"
+           class="inline-block bg-yellow-200 text-yellow-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-yellow-100 transition-colors">
+          Pesan Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     CARA PEMESANAN
+════════════════════════════════════════ -->
+<!-- <section id="order" class="py-20 bg-cream">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-brown font-semibold text-sm tracking-widest uppercase">Mudah & Cepat</span>
+    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brown-dark mt-2 mb-14">Cara Pemesanan</h2>
+
+    <div class="grid sm:grid-cols-5 gap-4 items-start">
+      <div class="flex flex-col items-center gap-3 step-connector">
+        <div class="w-14 h-14 bg-brown-dark rounded-full flex items-center justify-center text-bread text-xl shadow-lg">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <span class="text-xs font-bold text-brown-dark bg-bread/30 rounded-full w-5 h-5 flex items-center justify-center">1</span>
+        <p class="text-brown-dark font-semibold text-sm">Pilih Produk</p>
+        <p class="text-ink/55 text-xs">Lihat menu & tentukan pilihan Anda</p>
+      </div>
+
+      <div class="hidden sm:flex items-center justify-center pt-6">
+        <i class="fa-solid fa-chevron-right text-brown/30 text-xl"></i>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 bg-brown-dark rounded-full flex items-center justify-center text-bread text-xl shadow-lg">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <span class="text-xs font-bold text-brown-dark bg-bread/30 rounded-full w-5 h-5 flex items-center justify-center">2</span>
+        <p class="text-brown-dark font-semibold text-sm">Hubungi WhatsApp</p>
+        <p class="text-ink/55 text-xs">Kirim pesanan & detail Anda</p>
+      </div>
+
+      <div class="hidden sm:flex items-center justify-center pt-6">
+        <i class="fa-solid fa-chevron-right text-brown/30 text-xl"></i>
+      </div>
+
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 bg-brown-dark rounded-full flex items-center justify-center text-bread text-xl shadow-lg">
+          <i class="fa-solid fa-check-double"></i>
+        </div>
+        <span class="text-xs font-bold text-brown-dark bg-bread/30 rounded-full w-5 h-5 flex items-center justify-center">3</span>
+        <p class="text-brown-dark font-semibold text-sm">Konfirmasi & Bayar</p>
+        <p class="text-ink/55 text-xs">Transfer / QRIS / COD</p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-5 gap-4 mt-8">
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-14 h-14 bg-bread rounded-full flex items-center justify-center text-brown-dark text-xl shadow-lg">
+          <i class="fa-solid fa-fire-burner"></i>
+        </div>
+        <span class="text-xs font-bold text-brown-dark bg-bread/30 rounded-full w-5 h-5 flex items-center justify-center">4</span>
+        <p class="text-brown-dark font-semibold text-sm">Diproses</p>
+        <p class="text-ink/55 text-xs">Roti dipanggang fresh untuk Anda</p>
+      </div>
+
+      <div class="hidden sm:flex items-center justify-center pt-6">
+        <i class="fa-solid fa-chevron-right text-brown/30 text-xl"></i>
+      </div>
+
+      <div class="sm:col-span-3 flex flex-col items-center gap-3">
+        <div class="w-14 h-14 bg-bread rounded-full flex items-center justify-center text-brown-dark text-xl shadow-lg">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <span class="text-xs font-bold text-brown-dark bg-bread/30 rounded-full w-5 h-5 flex items-center justify-center">5</span>
+        <p class="text-brown-dark font-semibold text-sm">Ambil / Delivery</p>
+        <p class="text-ink/55 text-xs">Ambil langsung atau kami antar ke lokasi Anda</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ════════════════════════════════════════
+     GALERI
+════════════════════════════════════════ -->
+<section id="gallery" class="py-20 bg-brown-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-bread font-semibold text-sm tracking-widest uppercase">Galeri Kami</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Momen di Kedai Roti Enggo</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="gallery-item rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/img/1.webp"
+             alt="Roti fresh" class="w-full h-full object-cover" />
+      </div>
+      <div class="gallery-item rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/img/2.webp"
+             alt="Proses pembuatan" class="w-full h-full object-cover" />
+      </div>
+       <div class="gallery-item rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/img/3.webp"
+             alt="Proses pembuatan" class="w-full h-full object-cover" />
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TESTIMONI
+════════════════════════════════════════ -->
+<section id="testimoni" class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-brown font-semibold text-sm tracking-widest uppercase">Ulasan Pelanggan</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brown-dark mt-2">Yang Mereka Katakan</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover border border-brown/5">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-ink/70 text-sm italic leading-relaxed mb-5">
+          "Rotinya lembut banget dan selalu fresh! Sudah berlangganan hampir setahun, kualitasnya konsisten.
+          Anak-anak saya suka banget sama donat rainbow-nya."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brown/20 flex items-center justify-center">
+            <i class="fa-solid fa-user text-brown"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-brown-dark text-sm">Ibu Yanti</p>
+            <p class="text-ink/45 text-xs">Pelanggan Setia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-brown-dark rounded-2xl p-6 shadow-md card-hover">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-white/75 text-sm italic leading-relaxed mb-5">
+          "Cake ulang tahun anakku cantik banget dan rasanya enak sekali. Semua tamu pesta puji-puji terus.
+          Pasti order lagi buat acara berikutnya!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="fa-solid fa-user text-white"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-white text-sm">Pak Dimas</p>
+            <p class="text-white/45 text-xs">Pelanggan Baru</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover border border-brown/5">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-ink/70 text-sm italic leading-relaxed mb-5">
+          "Pelayanannya ramah dan cepat. Pesan via WhatsApp langsung direspon,
+          roti dikirim tepat waktu dan masih hangat. Recommended banget!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brown/20 flex items-center justify-center">
+            <i class="fa-solid fa-user text-brown"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-brown-dark text-sm">Kak Mira</p>
+            <p class="text-ink/45 text-xs">Pelanggan Setia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover border border-brown/5">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-ink/70 text-sm italic leading-relaxed mb-5">
+          "Hampers-nya keren, packaging rapi dan produk isinya banyak. Pas buat kado pernikahan, penerimanya senang sekali!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brown/20 flex items-center justify-center">
+            <i class="fa-solid fa-user text-brown"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-brown-dark text-sm">Ibu Liana</p>
+            <p class="text-ink/45 text-xs">Pelanggan Baru</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md card-hover border border-brown/5">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-ink/70 text-sm italic leading-relaxed mb-5">
+          "Croissant-nya flaky dan buttery banget! Jarang ada yang segitu enak di Jayapura. Setiap pagi selalu beli buat sarapan."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brown/20 flex items-center justify-center">
+            <i class="fa-solid fa-user text-brown"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-brown-dark text-sm">Pak Rendi</p>
+            <p class="text-ink/45 text-xs">Pelanggan Setia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-brown-dark rounded-2xl p-6 shadow-md card-hover">
+        <div class="flex gap-0.5 text-bread mb-3">
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+        </div>
+        <p class="text-white/75 text-sm italic leading-relaxed mb-5">
+          "Cookies-nya enak dan packaging-nya lucu. Cocok buat oleh-oleh dari Papua. Sudah kirim ke keluarga di Jawa, mereka ketagihan!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+            <i class="fa-solid fa-user text-white"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-white text-sm">Mbak Sari</p>
+            <p class="text-white/45 text-xs">Pelanggan Setia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     LOKASI
+════════════════════════════════════════ -->
+<section id="location" class="py-20 bg-brown-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-bread font-semibold text-sm tracking-widest uppercase">Temukan Kami</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Lokasi Kami</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <!-- Map embed -->
+      <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8!2d140.5144!3d-2.5867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMzUnMDYuOCJTIDE0MMKwMzAnNTEuOCJF!5e0!3m2!1sid!2sid!4v1234567890"
+          width="100%" height="100%"
+          style="border:0; min-height:320px;"
+          allowfullscreen=""
+          loading="lazy"
+          title="Lokasi Kedai Roti Enggo">
+        </iframe>
+      </div>
+
+      <!-- Info cards -->
+      <div class="space-y-5">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4">
+          <div class="w-11 h-11 bg-bread/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-location-dot text-bread"></i>
+          </div>
+          <div>
+            <p class="text-white font-semibold mb-1">Alamat</p>
+            <p class="text-white/65 text-sm leading-relaxed">
+              Yahim, Kec. Sentani,<br/>Kabupaten Jayapura,<br/>Papua 99359
+            </p>
+            <a href="https://maps.app.goo.gl/PUqUNFVyeNTDMwbi8" target="_blank"
+               class="inline-flex items-center gap-1 text-bread text-xs font-medium mt-2 hover:underline">
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Buka di Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4">
+          <div class="w-11 h-11 bg-bread/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-clock text-bread"></i>
+          </div>
+          <div>
+            <p class="text-white font-semibold mb-1">Jam Operasional</p>
+            <div class="text-white/65 text-sm space-y-1">
+              <div class="flex justify-between gap-6">
+                <span>Senin – Jumat</span>
+                <span class="text-bread font-medium">07.00 – 21.00 WIT</span>
+              </div>
+              <div class="flex justify-between gap-6">
+                <span>Sabtu – Minggu</span>
+                <span class="text-bread font-medium">06.00 – 22.00 WIT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4">
+          <div class="w-11 h-11 bg-bread/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-phone text-bread"></i>
+          </div>
+          <div>
+            <p class="text-white font-semibold mb-1">Telepon / WhatsApp</p>
+            <a href="tel:0821888569" class="text-bread text-sm hover:underline block">0821-888-569</a>
+            <a href="https://wa.me/62821888569" target="_blank"
+               class="inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full mt-2 hover:bg-green-600 transition-colors">
+              <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4">
+          <div class="w-11 h-11 bg-bread/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-credit-card text-bread"></i>
+          </div>
+          <div>
+            <p class="text-white font-semibold mb-2">Metode Pembayaran</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">QRIS</span>
+              <span class="bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">Transfer Bank</span>
+              <span class="bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">Tunai (COD)</span>
+              <span class="bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">GoPay</span>
+              <span class="bg-white/10 text-white/80 text-xs px-3 py-1 rounded-full">OVO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section id="faq" class="py-20 bg-cream">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="text-brown font-semibold text-sm tracking-widest uppercase">FAQ</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brown-dark mt-2">Pertanyaan Umum</h2>
+    </div>
+
+    <div class="space-y-3" id="faqList">
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Apakah menerima pesanan kue ulang tahun?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Ya! Kami menerima pesanan birthday cake custom dengan berbagai ukuran dan desain sesuai keinginan Anda.
+          Pesanan dapat dilakukan minimal H-2 melalui WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Apakah ada layanan delivery?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Ya, kami menyediakan layanan delivery untuk area Sentani dan sekitarnya.
+          Biaya pengiriman disesuaikan dengan jarak. Hubungi kami via WhatsApp untuk info lebih lanjut.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Bisakah pesan custom cake dengan desain sendiri?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Tentu saja! Kami menerima custom cake dengan tema dan desain sesuai permintaan.
+          Kirimkan referensi desain Anda via WhatsApp dan tim kami akan membantu mewujudkannya.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Apakah menerima pembayaran QRIS?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Ya! Kami menerima berbagai metode pembayaran: QRIS, transfer bank, GoPay, OVO, dan pembayaran tunai (COD) untuk area terdekat.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Bisakah pesan sehari sebelumnya?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Untuk produk reguler (roti, donat, dll) bisa pesan langsung di hari yang sama atau sehari sebelumnya.
+          Untuk produk custom seperti birthday cake, minimal pemesanan 2 hari sebelumnya.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-white rounded-2xl shadow-sm border border-brown/8 overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left">
+          <span class="font-semibold text-brown-dark text-sm pr-4">Apakah produk mengandung bahan pengawet?</span>
+          <i class="fa-solid fa-chevron-down text-brown transition-transform flex-shrink-0"></i>
+        </button>
+        <div class="faq-answer px-6 text-ink/70 text-sm leading-relaxed">
+          <p class="pb-4">Tidak! Semua produk kami dibuat dari bahan segar berkualitas tanpa pengawet buatan.
+          Oleh karena itu produk kami lebih baik dikonsumsi dalam 1–2 hari setelah pembelian.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section id="cta" class="py-20 bg-brown relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-bread rounded-full -translate-x-20 -translate-y-20 blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-brown-dark rounded-full translate-x-20 translate-y-20 blur-3xl"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+      <i class="fa-solid fa-fire-flame-curved text-bread"></i> Dipanggang Fresh Setiap Hari
+    </span>
+    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4 leading-tight">
+      Siap Menikmati Roti<br/>
+      <span class="text-bread">Fresh</span> Hari Ini?
+    </h2>
+    <p class="text-white/70 text-base leading-relaxed mb-8">
+      Jangan lewatkan roti segar kami yang baru keluar dari oven. Pesan sekarang dan rasakan kenikmatannya!
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://wa.me/62821888569?text=Halo%20Kedai%20Roti%20Enggo%2C%20saya%20ingin%20pesan%20roti" target="_blank"
+         class="flex items-center gap-2 bg-bread text-brown-dark font-bold px-7 py-3.5 rounded-full hover:bg-bread-dark transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-sm">
+        <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+      </a>
+      <a href="tel:0821888569"
+         class="flex items-center gap-2 bg-white/15 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-white/25 transition-all text-sm">
+        <i class="fa-solid fa-phone"></i> Hubungi Kami
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="bg-brown-dark pt-14 pb-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-10 h-10 bg-bread rounded-full flex items-center justify-center">
+            <i class="fa-solid fa-bread-slice text-brown-dark text-sm"></i>
+          </div>
+          <div>
+            <p class="text-white font-serif font-bold text-base">Kedai Roti Enggo</p>
+            <p class="text-bread text-xs tracking-widest">SENTANI · JAYAPURA</p>
+          </div>
+        </div>
+        <p class="text-white/55 text-sm leading-relaxed mb-5 max-w-xs">
+          Roti segar berkualitas, dipanggang setiap hari dengan bahan pilihan tanpa pengawet.
+          Hadir untuk menemani momen spesial keluarga Anda.
+        </p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-bread hover:text-brown-dark transition-all">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-bread hover:text-brown-dark transition-all">
+            <i class="fa-brands fa-facebook text-sm"></i>
+          </a>
+          <a href="#" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-bread hover:text-brown-dark transition-all">
+            <i class="fa-brands fa-tiktok text-sm"></i>
+          </a>
+          <a href="https://wa.me/62821888569" target="_blank"
+             class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:bg-green-500 hover:text-white transition-all">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Menu</p>
+        <ul class="space-y-2 text-sm text-white/55">
+          <li><a href="#home"      class="hover:text-bread transition-colors">Beranda</a></li>
+          <li><a href="#about"     class="hover:text-bread transition-colors">Tentang Kami</a></li>
+          <li><a href="#products"  class="hover:text-bread transition-colors">Produk</a></li>
+          <li><a href="#promo"     class="hover:text-bread transition-colors">Promo</a></li>
+          <li><a href="#gallery"   class="hover:text-bread transition-colors">Galeri</a></li>
+          <li><a href="#testimoni" class="hover:text-bread transition-colors">Testimoni</a></li>
+          <li><a href="#location"  class="hover:text-bread transition-colors">Lokasi</a></li>
+          <li><a href="#faq"       class="hover:text-bread transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-white font-semibold text-sm mb-4">Kontak</p>
+        <ul class="space-y-3 text-sm text-white/55">
+          <li class="flex gap-2.5">
+            <i class="fa-solid fa-location-dot text-bread mt-0.5 flex-shrink-0"></i>
+            <span>Yahim, Kec. Sentani, Kab. Jayapura, Papua 99359</span>
+          </li>
+          <li class="flex gap-2.5">
+            <i class="fa-solid fa-phone text-bread mt-0.5 flex-shrink-0"></i>
+            <a href="tel:0821888569" class="hover:text-bread transition-colors">0821-888-569</a>
+          </li>
+          <li class="flex gap-2.5">
+            <i class="fa-solid fa-envelope text-bread mt-0.5 flex-shrink-0"></i>
+            <a href="mailto:kedaienggo@gmail.com" class="hover:text-bread transition-colors">kedaienggo@gmail.com</a>
+          </li>
+          <li class="flex gap-2.5">
+            <i class="fa-solid fa-clock text-bread mt-0.5 flex-shrink-0"></i>
+            <span>Sen–Jum: 07.00–21.00<br/>Sab–Min: 06.00–22.00 WIT</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/35">
+      <p>&copy; 2024 Kedai Roti Enggo. Semua hak dilindungi.</p>
+      <p>Made with <i class="fa-solid fa-heart text-bread text-xs"></i> in Sentani, Papua</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════
+     FLOATING WHATSAPP BUTTON
+════════════════════════════════════════ -->
+<a href="https://wa.me/62821888569?text=Halo%20Kedai%20Roti%20Enggo%2C%20saya%20ingin%20pesan%20roti"
+   target="_blank"
+   id="waFloat"
+   class="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-colors hidden">
+  <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+</a>
+
+<!-- ════════════════════════════════════════
+     BACK TO TOP BUTTON
+════════════════════════════════════════ -->
+<button id="backToTop"
+  class="fixed bottom-24 right-6 z-50 w-10 h-10 bg-brown rounded-full flex items-center justify-center shadow-lg hover:bg-brown-dark transition-colors opacity-0 pointer-events-none"
+  aria-label="Kembali ke atas">
+  <i class="fa-solid fa-chevron-up text-white text-sm"></i>
+</button>
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  /* ── Navbar ── */
+  const navbar = document.getElementById('navbar');
+  const waFloat = document.getElementById('waFloat');
+  const backToTop = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 80) {
+      navbar.classList.add('nav-scrolled');
+    } else {
+      navbar.classList.remove('nav-scrolled');
+    }
+    if (scrollY > 400) {
+      waFloat.classList.remove('hidden');
+      backToTop.style.opacity = '1';
+      backToTop.style.pointerEvents = 'auto';
+    } else {
+      waFloat.classList.add('hidden');
+      backToTop.style.opacity = '0';
+      backToTop.style.pointerEvents = 'none';
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── Mobile menu ── */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const icon = burger.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+  });
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+    const icon = burger.querySelector('i');
+    icon.classList.add('fa-bars');
+    icon.classList.remove('fa-xmark');
+  }
+
+  /* ── Product filter ── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active', 'bg-brown-dark', 'text-white');
+        b.classList.add('bg-white', 'text-brown', 'border', 'border-brown/30');
+      });
+      btn.classList.add('active', 'bg-brown-dark', 'text-white');
+      btn.classList.remove('bg-white', 'text-brown', 'border', 'border-brown/30');
+
+      const cat = btn.dataset.cat;
+      productCards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn .3s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const icon = btn.querySelector('i');
+      const isOpen = answer.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = '');
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  /* ── Active nav highlight on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.remove('text-bread');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('text-bread');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
