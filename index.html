@@ -111,7 +111,6 @@
         <li><a href="#about"     class="hover:text-bread transition-colors">Tentang</a></li>
         <li><a href="#why"       class="hover:text-bread transition-colors">Kenapa Kami</a></li>
         <li><a href="#products"  class="hover:text-bread transition-colors">Produk</a></li>
-        <li><a href="#promo"     class="hover:text-bread transition-colors">Promo</a></li>
         <li><a href="#gallery"   class="hover:text-bread transition-colors">Galeri</a></li>
         <li><a href="#testimoni" class="hover:text-bread transition-colors">Testimoni</a></li>
         <li><a href="#location"  class="hover:text-bread transition-colors">Lokasi</a></li>
@@ -139,7 +138,6 @@
       <li><a href="#about"     class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Tentang Kami</a></li>
       <li><a href="#why"       class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Kenapa Kami</a></li>
       <li><a href="#products"  class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Produk</a></li>
-      <li><a href="#promo"     class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Promo</a></li>
       <li><a href="#gallery"   class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Galeri</a></li>
       <li><a href="#testimoni" class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Testimoni</a></li>
       <li><a href="#location"  class="block py-1 hover:text-bread" onclick="closeMobileMenu()">Lokasi</a></li>
@@ -180,15 +178,14 @@
           <i class="fa-solid fa-fire-flame-curved"></i> Fresh From The Oven
         </span>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-6xl text-white font-serif font-bold leading-tight mb-3 lg:mb-4">
-          Roti Fresh<br/>
-          <span class="text-bread">Dipanggang</span><br/>
-          Setiap Hari
+        <h1 class="text-2xl sm:text-4xl lg:text-6xl text-white font-serif font-bold leading-tight mb-3 lg:mb-4">
+          <span class="sm:hidden">Roti Fresh <span class="text-bread">Dipanggang</span><br/>Setiap Hari</span>
+          <span class="hidden sm:block">Roti Fresh<br/><span class="text-bread">Dipanggang</span><br/>Setiap Hari</span>
         </h1>
 
         <p class="text-white/80 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
           Nikmati aneka roti, kue, dan pastry dengan bahan berkualitas, dibuat segar setiap hari untuk keluarga Anda.
-          Tanpa pengawet, penuh cinta.
+          Tanpa pengawet dan penuh cinta.
         </p>
 
         <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -301,7 +298,7 @@
       Kenapa Memilih Kedai Roti Enggo?
     </h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
       <!-- Card -->
       <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
         <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
@@ -325,14 +322,7 @@
         <p class="text-white font-semibold text-sm leading-tight">Pesanan Khusus</p>
       </div>
 
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
-        <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
-          <i class="fa-solid fa-certificate text-bread text-2xl"></i>
-        </div>
-        <p class="text-white font-semibold text-sm leading-tight">Halal</p>
-      </div>
-
-      <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
+<div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors card-hover">
         <div class="w-14 h-14 bg-bread/15 rounded-full flex items-center justify-center">
           <i class="fa-solid fa-heart text-bread text-2xl"></i>
         </div>
@@ -530,83 +520,6 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     PROMO
-════════════════════════════════════════ -->
-<section id="promo" class="py-20 bg-brown">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <span class="text-bread font-semibold text-sm tracking-widest uppercase">Penawaran Terbatas</span>
-      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">Promo Spesial</h2>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <div class="bg-gradient-to-br from-bread to-amber-400 rounded-2xl p-6 text-center shadow-lg card-hover relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
-        <i class="fa-solid fa-percent text-white/80 text-4xl mb-3"></i>
-        <h3 class="text-brown-dark font-serif font-bold text-xl mb-1">Diskon 20%</h3>
-        <p class="text-brown-dark/75 text-sm mb-4">Untuk pembelian pertama via WhatsApp. Kode: <strong>ENGGO20</strong></p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20order%20dengan%20kode%20ENGGO20" target="_blank"
-           class="inline-block bg-brown-dark text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-brown transition-colors">
-          Klaim Sekarang
-        </a>
-      </div>
-
-      <div class="bg-gradient-to-br from-brown-dark to-brown rounded-2xl p-6 text-center border border-white/10 shadow-lg card-hover relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-20 h-20 bg-bread/10 rounded-full translate-y-6 -translate-x-6"></div>
-        <i class="fa-solid fa-mug-hot text-bread text-4xl mb-3"></i>
-        <h3 class="text-white font-serif font-bold text-xl mb-1">Paket Sarapan</h3>
-        <p class="text-white/70 text-sm mb-4">2 Roti Tawar + 1 Selai + 1 Minuman hanya <strong class="text-bread">Rp 35.000</strong></p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20memesan%20Paket%20Sarapan" target="_blank"
-           class="inline-block bg-bread text-brown-dark text-sm font-semibold px-5 py-2 rounded-full hover:bg-bread-dark transition-colors">
-          Pesan Sekarang
-        </a>
-      </div>
-
-      <div class="bg-gradient-to-br from-rose-800 to-red-700 rounded-2xl p-6 text-center shadow-lg card-hover relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 w-32 h-32 bg-white/5 rounded-full -translate-y-12"></div>
-        <i class="fa-solid fa-gift text-white/80 text-4xl mb-3"></i>
-        <h3 class="text-white font-serif font-bold text-xl mb-1">Buy 2 Get 1</h3>
-        <p class="text-white/70 text-sm mb-4">Beli 2 donat, gratis 1 donat pilihan. Berlaku setiap hari!</p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20memesan%20promo%20Buy%202%20Get%201" target="_blank"
-           class="inline-block bg-white text-red-700 text-sm font-semibold px-5 py-2 rounded-full hover:bg-white/90 transition-colors">
-          Pesan Sekarang
-        </a>
-      </div>
-
-      <div class="bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl p-6 text-center shadow-lg card-hover">
-        <i class="fa-solid fa-calendar-week text-purple-200 text-4xl mb-3"></i>
-        <h3 class="text-white font-serif font-bold text-xl mb-1">Promo Weekend</h3>
-        <p class="text-white/70 text-sm mb-4">Diskon 15% untuk semua produk setiap Sabtu & Minggu.</p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20info%20Promo%20Weekend" target="_blank"
-           class="inline-block bg-purple-300 text-purple-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-purple-200 transition-colors">
-          Info Selengkapnya
-        </a>
-      </div>
-
-      <div class="bg-gradient-to-br from-teal-800 to-teal-600 rounded-2xl p-6 text-center shadow-lg card-hover">
-        <i class="fa-solid fa-box-open text-teal-200 text-4xl mb-3"></i>
-        <h3 class="text-white font-serif font-bold text-xl mb-1">Hampers Spesial</h3>
-        <p class="text-white/70 text-sm mb-4">Paket hampers cantik untuk hari raya, wisuda, dan momen spesial.</p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20memesan%20Hampers%20Spesial" target="_blank"
-           class="inline-block bg-teal-200 text-teal-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-teal-100 transition-colors">
-          Pesan Sekarang
-        </a>
-      </div>
-
-      <div class="bg-gradient-to-br from-yellow-700 to-amber-600 rounded-2xl p-6 text-center shadow-lg card-hover">
-        <i class="fa-solid fa-cake-candles text-yellow-200 text-4xl mb-3"></i>
-        <h3 class="text-white font-serif font-bold text-xl mb-1">Birthday Cake</h3>
-        <p class="text-white/70 text-sm mb-4">Kue ulang tahun custom gratis nama & ucapan. Pesan H-2.</p>
-        <a href="https://wa.me/6282199579857?text=Halo%20Kedai%20Roti%20Enggo%20saya%20dapat%20informasi%20dari%20web%20dan%20ingin%20memesan%20Birthday%20Cake" target="_blank"
-           class="inline-block bg-yellow-200 text-yellow-900 text-sm font-semibold px-5 py-2 rounded-full hover:bg-yellow-100 transition-colors">
-          Pesan Sekarang
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ════════════════════════════════════════
      CARA PEMESANAN
@@ -1081,7 +994,7 @@
           <li><a href="#home"      class="hover:text-bread transition-colors">Beranda</a></li>
           <li><a href="#about"     class="hover:text-bread transition-colors">Tentang Kami</a></li>
           <li><a href="#products"  class="hover:text-bread transition-colors">Produk</a></li>
-          <li><a href="#promo"     class="hover:text-bread transition-colors">Promo</a></li>
+
           <li><a href="#gallery"   class="hover:text-bread transition-colors">Galeri</a></li>
           <li><a href="#testimoni" class="hover:text-bread transition-colors">Testimoni</a></li>
           <li><a href="#location"  class="hover:text-bread transition-colors">Lokasi</a></li>
