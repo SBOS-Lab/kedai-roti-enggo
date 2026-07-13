@@ -27,7 +27,7 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -40,7 +40,7 @@
             ink:     '#333333',
           },
           fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            serif: ['"Lora"', 'Georgia', 'serif'],
             sans:  ['Poppins', 'ui-sans-serif', 'system-ui'],
           },
         },
@@ -51,7 +51,7 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; color: #333333; }
-    h1,h2,h3 { font-family: 'Playfair Display', Georgia, serif; }
+    h1,h2,h3 { font-family: 'Lora', Georgia, serif; }
 
     /* ── Navbar scroll shadow ── */
     .nav-scrolled { box-shadow: 0 2px 16px rgba(92,64,51,.18); }
@@ -101,8 +101,12 @@
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo -->
-      <a href="#home" class="flex items-center group">
+      <a href="#home" class="flex items-center gap-2.5 group">
         <img src="assets/img/logo.webp" alt="Kedai Roti Enggo" class="h-11 w-auto group-hover:scale-105 transition-transform drop-shadow-md" />
+        <div class="leading-tight">
+          <span class="block text-white font-serif text-sm font-semibold tracking-wide">Kedai Roti</span>
+          <span class="block text-bread text-xs font-medium tracking-widest">Enggo</span>
+        </div>
       </a>
 
       <!-- Desktop menu -->
